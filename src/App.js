@@ -1,27 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
-import Form from './components/Form';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SignUp from './pages/sign-up';
+import SignIn from './pages/sign-in';
+import HomePage from './pages/homepage';
+import getFirebase from './firebase';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  useEffect(() => {
+    const firebase = getFirebase();
+
+    if (firebase) {
+      firebase.auth().onAuthStateChanged((authUser) => {
+        if (authUser) {
+          setCurrentUser(authUser.email)
+        }
+      });
+    }
+  }, []);
+
+  console.log('currentUser', currentUser)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Form />
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <HomePage/>
+        </Route>
+        <Route exact path='/sign-up'>
+          <SignUp/>
+        </Route>
+        <Route exact path='/sign-in'>
+          <SignIn/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
