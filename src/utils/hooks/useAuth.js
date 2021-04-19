@@ -1,36 +1,39 @@
-import React, { useState, useEffect, useContext, createContext } from 'react';
-import getFirebase from '../../firebase';
-const firebase = getFirebase();
+import React, { useState, useEffect, useContext, createContext } from "react"
+import PropTypes from "prop-types"
+import getFirebase from "../../firebase"
 
-const authContext = createContext();
+const firebase = getFirebase()
+
+const authContext = createContext()
 
 /* A hook to rerender child component if auth status changes */
-export const useAuth = () => {
-  return useContext(authContext);
-};
+export const useAuth = () => useContext(authContext)
 
 const useProvideAuth = () => {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState()
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
       if (authUser) {
-        setCurrentUser({ email: authUser.email})
+        setCurrentUser({ email: authUser.email })
       } else {
         setCurrentUser({})
       }
-    });
+    })
 
-    return () => unsubscribe();
-    
-  }, []);
+    return () => unsubscribe()
+  }, [])
 
   return {
-    currentUser
+    currentUser,
   }
 }
 
-export const ProvideAuth = ({children}) => {
-  const auth = useProvideAuth();
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
-};
+export const ProvideAuth = ({ children }) => {
+  const auth = useProvideAuth()
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>
+}
+
+ProvideAuth.propTypes = {
+  children: PropTypes.node.isRequired,
+}

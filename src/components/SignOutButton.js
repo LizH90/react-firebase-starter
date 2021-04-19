@@ -1,27 +1,27 @@
-import React from 'react';
-import getFirebase from '../firebase';
+import React from "react"
+import getFirebase from "../firebase"
 
 const SignOutButton = () => {
-  const firebaseInstance = getFirebase();
-  const signOut = async() => {
+  const firebaseInstance = getFirebase()
+  const signOut = async () => {
     try {
       if (firebaseInstance) {
-        await firebaseInstance.auth().signOut();
+        await firebaseInstance.auth().signOut()
         alert("Successfully signed out")
       }
     } catch (error) {
-      console.log('error', error)
+      console.log("error", error)
     }
   }
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={signOut}>
+        <button onClick={signOut} type="submit">
           Sign Out
         </button>
       </header>
     </div>
-  );
-};
+  )
+}
 
-export default SignOutButton;
+export default SignOutButton
