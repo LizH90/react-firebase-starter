@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 import Form from '../components/Form';
 import { useAuth } from '../utils/hooks/useAuth';
 
@@ -18,7 +19,9 @@ const SignIn = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Sign In</h1>
         <Form type="signIn" />
+        <Link to='/sign-up'>Don't have an account? Sign Up here</Link>
       </header>
     </div>
   );
