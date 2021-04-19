@@ -15,7 +15,6 @@ const Form = ({ type }) => {
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value),
       buttonName: "Sign Up",
-      alert: () => alert(`Welcome ${email.value}!`),
     },
     signIn: {
       handler: () =>
@@ -23,7 +22,6 @@ const Form = ({ type }) => {
           .auth()
           .signInWithEmailAndPassword(email.value, password.value),
       buttonName: "Sign In",
-      alert: () => alert(`Welcome back ${email.value}!`),
     },
   }
 
@@ -31,12 +29,9 @@ const Form = ({ type }) => {
     e.preventDefault()
     try {
       if (firebaseInstance) {
-        const user = await formDetails[type].handler()
-        console.log("user", user)
-        formDetails[type].alert()
+        await formDetails[type].handler()
       }
     } catch (error) {
-      console.log("error", error)
       alert(error.message)
     }
   }

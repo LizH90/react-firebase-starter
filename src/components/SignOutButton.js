@@ -7,7 +7,6 @@ const SignOutButton = () => {
     try {
       if (firebaseInstance) {
         await firebaseInstance.auth().signOut()
-        alert("Successfully signed out")
       }
     } catch (error) {
       console.log("error", error)
