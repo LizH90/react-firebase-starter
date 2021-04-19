@@ -7,19 +7,20 @@ import PrivateRoute from './components/PrivateRoute';
 import { ProvideAuth } from './utils/hooks/useAuth';
 
 function App() {
+
   return (
     <Router>
       <Switch>
         <ProvideAuth>
-          <PrivateRoute exact path='/'>
-            <HomePage/>
-          </PrivateRoute>
           <Route exact path='/sign-up'>
             <SignUp/>
           </Route>
           <Route exact path='/sign-in'>
             <SignIn/>
           </Route>
+          <PrivateRoute exact path='/'>
+            <HomePage/>
+          </PrivateRoute>
         </ProvideAuth>
       </Switch>
     </Router>
