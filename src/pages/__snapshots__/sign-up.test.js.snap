@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The sign up page renders correctly 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <h1>
+      Sign Up
+    </h1>
+    <div
+      className="App"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Email"
+          value=""
+        />
+        <input
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+        <button
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+    <a
+      href="/sign-in"
+      onClick={[Function]}
+    >
+      Back to Sign In
+    </a>
+  </header>
+</div>
+`;
