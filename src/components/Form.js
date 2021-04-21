@@ -1,12 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import useInput from '../utils/hooks/useInput'
-import getFirebase from '../firebase'
+import React from 'react';
+import PropTypes from 'prop-types';
+import useInput from '../utils/hooks/useInput';
+import getFirebase from '../firebase';
+import './form.css';
 
 const Form = ({ type }) => {
-  const email = useInput('')
-  const password = useInput('')
-  const firebaseInstance = getFirebase()
+  const email = useInput('');
+  const password = useInput('');
+  const firebaseInstance = getFirebase();
 
   const formDetails = {
     signUp: {
@@ -21,7 +22,7 @@ const Form = ({ type }) => {
         .signInWithEmailAndPassword(email.value, password.value),
       buttonName: 'Sign In',
     },
-  }
+  };
 
   const onSubmitHandler = async (e) => {
     e.preventDefault()
@@ -32,20 +33,26 @@ const Form = ({ type }) => {
     } catch (error) {
       alert(error.message)
     }
-  }
+  };
+
   return (
-    <div className="App">
-      <form onSubmit={(e) => onSubmitHandler(e)}>
-        <input placeholder="Email" {...email} />
-        <input placeholder="Password" type="password" {...password} />
-        <button type="submit">{formDetails[type].buttonName}</button>
+    <div>
+      <form
+        onSubmit={(e) => onSubmitHandler(e)}
+        className="form"
+      >
+        <input placeholder="Email" {...email} className="primaryInput" />
+        <input placeholder="Password" type="password" {...password} className="primaryInput" />
+        <button type="submit" className="primaryButton submit">
+          {formDetails[type].buttonName}
+        </button>
       </form>
     </div>
   )
-}
+};
 
 Form.propTypes = {
   type: PropTypes.string.isRequired,
-}
+};
 
-export default Form
+export default Form;

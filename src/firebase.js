@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -7,10 +7,10 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
-}
+};
 
 // Initialize Firebase
-let instance
+let instance;
 
 export default function getFirebase() {
   if (typeof window !== 'undefined') {
@@ -18,5 +18,5 @@ export default function getFirebase() {
     instance = firebase.initializeApp(firebaseConfig)
     return instance
   }
-  return null
+  return null;
 }

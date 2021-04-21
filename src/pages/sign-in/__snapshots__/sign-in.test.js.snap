@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The sign in page renders correctly 1`] = `
+<div
+  className="page"
+>
+  <h1
+    className="title"
+  >
+    Sign In
+  </h1>
+  <div>
+    <form
+      className="form"
+      onSubmit={[Function]}
+    >
+      <input
+        className="primaryInput"
+        onChange={[Function]}
+        placeholder="Email"
+        value=""
+      />
+      <input
+        className="primaryInput"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <button
+        className="primaryButton submit"
+        type="submit"
+      >
+        Sign In
+      </button>
+    </form>
+  </div>
+  <a
+    className="primaryLink"
+    href="/sign-up"
+    onClick={[Function]}
+  >
+    Don't have an account? Sign up here
+  </a>
+</div>
+`;

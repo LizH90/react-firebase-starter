@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The homepage renders correctly 1`] = `
+<div>
+  <div
+    className="message"
+  >
+    Welcome
+  </div>
+  <div
+    className="page"
+  >
+    <h1
+      className="title"
+    >
+      Homepage
+    </h1>
+    <button
+      className="primaryButton"
+      onClick={[Function]}
+      type="submit"
+    >
+      Sign Out
+    </button>
+  </div>
+</div>
+`;
