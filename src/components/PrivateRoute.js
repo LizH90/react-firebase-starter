@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
-import PropTypes from "prop-types"
-import { Route, Redirect } from "react-router-dom"
-import Loader from "react-loader-spinner"
-import { useAuth } from "../utils/hooks/useAuth"
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import { Route, Redirect } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
+import { useAuth } from '../utils/hooks/useAuth'
 
 const PrivateRoute = ({ children, ...rest }) => {
   const userInfo = useAuth()
@@ -19,13 +19,11 @@ const PrivateRoute = ({ children, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={() =>
-        auth.currentUser && Object.keys(auth.currentUser).length ? (
-          children
-        ) : (
-          <Redirect to="/sign-in" />
-        )
-      }
+      render={() => (auth.currentUser && Object.keys(auth.currentUser).length ? (
+        children
+      ) : (
+        <Redirect to="/sign-in" />
+      ))}
     />
   )
 }

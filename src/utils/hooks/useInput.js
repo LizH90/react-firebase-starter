@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 const useInput = () => {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState('')
 
   const onHandleChange = (e) => {
     setValue(e.target.value)

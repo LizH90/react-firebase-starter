@@ -1,4 +1,4 @@
-import firebase from "firebase"
+import firebase from 'firebase'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -13,7 +13,7 @@ const firebaseConfig = {
 let instance
 
 export default function getFirebase() {
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     if (instance) return instance
     instance = firebase.initializeApp(firebaseConfig)
     return instance

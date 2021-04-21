@@ -1,27 +1,25 @@
-import React from "react"
-import PropTypes from "prop-types"
-import useInput from "../utils/hooks/useInput"
-import getFirebase from "../firebase"
+import React from 'react'
+import PropTypes from 'prop-types'
+import useInput from '../utils/hooks/useInput'
+import getFirebase from '../firebase'
 
 const Form = ({ type }) => {
-  const email = useInput("")
-  const password = useInput("")
+  const email = useInput('')
+  const password = useInput('')
   const firebaseInstance = getFirebase()
 
   const formDetails = {
     signUp: {
-      handler: () =>
-        firebaseInstance
-          .auth()
-          .createUserWithEmailAndPassword(email.value, password.value),
-      buttonName: "Sign Up",
+      handler: () => firebaseInstance
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value),
+      buttonName: 'Sign Up',
     },
     signIn: {
-      handler: () =>
-        firebaseInstance
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value),
-      buttonName: "Sign In",
+      handler: () => firebaseInstance
+        .auth()
+        .signInWithEmailAndPassword(email.value, password.value),
+      buttonName: 'Sign In',
     },
   }
 

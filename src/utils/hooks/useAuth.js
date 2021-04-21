@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useContext, createContext } from "react"
-import PropTypes from "prop-types"
-import getFirebase from "../../firebase"
+import React, {
+  useState, useEffect, useContext, createContext,
+} from 'react'
+import PropTypes from 'prop-types'
+import getFirebase from '../../firebase'
 
 const firebase = getFirebase()
 
