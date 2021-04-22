@@ -57,5 +57,11 @@ code {
 
 .message {
   color: #808080;
-  padding: 10px;
+  margin: 10px;
+}
+
+.errorMessage {
+  color: red;
+  margin: 5px;
+  font-size: 12px;
 }

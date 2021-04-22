@@ -27,6 +27,7 @@ exports[`The sign up page renders correctly 1`] = `
         type="password"
         value=""
       />
+      
       <button
         className="primaryButton submit"
         type="submit"

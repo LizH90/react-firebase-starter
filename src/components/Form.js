@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import useInput from '../utils/hooks/useInput';
 import getFirebase from '../firebase';
 import './form.css';
@@ -8,6 +9,8 @@ const Form = ({ type }) => {
   const email = useInput('');
   const password = useInput('');
   const firebaseInstance = getFirebase();
+  const [errorMessage, setErrorMessage] = useState('');
+  const history = useHistory();
 
   const formDetails = {
     signUp: {
@@ -28,10 +31,11 @@ const Form = ({ type }) => {
     e.preventDefault()
     try {
       if (firebaseInstance) {
-        await formDetails[type].handler()
+        await formDetails[type].handler();
+        history.push('/');
       }
     } catch (error) {
-      alert(error.message)
+      setErrorMessage(error.message)
     }
   };
 
@@ -43,6 +47,7 @@ const Form = ({ type }) => {
       >
         <input placeholder="Email" {...email} className="primaryInput" />
         <input placeholder="Password" type="password" {...password} className="primaryInput" />
+        {errorMessage && <div className="errorMessage">{errorMessage}</div>}
         <button type="submit" className="primaryButton submit">
           {formDetails[type].buttonName}
         </button>
