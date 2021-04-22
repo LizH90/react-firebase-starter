@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import Form from '../../components/form';
+import Form from '../../components/auth-form';
 import { useAuth } from '../../utils/hooks/useAuth';
 
 const SignIn = () => {

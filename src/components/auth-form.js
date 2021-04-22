@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import useInput from '../utils/hooks/useInput';
 import getFirebase from '../firebase';
-import './form.css';
+import './auth-form.css';
 
 const Form = ({ type }) => {
   const email = useInput('');
