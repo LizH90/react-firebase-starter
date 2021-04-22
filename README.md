@@ -17,8 +17,12 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information. \
+I've used 3 snapshot tests for each page which have their own routes as a starting point.
 
+### `yarn lint`
+
+Runs eslint with airbnb rules with some exceptions specified in `package.json`.
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
@@ -29,42 +33,43 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Firebase
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Project Set Up
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project has firebase integrated with it, all the keys have been kept in an `.env` file which has not been commited to the project to keep them private.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To create your own variables open the [Firebase console](https://firebase.google.com/) and sign in or sign up if you don't already have an account.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Add a name to your project
+2. Choose if you want to enable analytics (not necessary)
+3. Once your project has been created click **Continue**
 
-## Learn More
+Get stated by click the web icon, add an App nickname and click register app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Step 2 shows you the config variables. If you create a `.env.local` you add these to the keys below.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+REACT_APP_FIREBASE_API_KEY=YOUR_API_KEY_HERE
+REACT_APP_FIREBASE_AUTHDOMAIN=YOUR_AUTH_DOMAIN_HERE
+REACT_APP_FIREBASE_PROJECT_ID=YOUR_PROJECT_HERE
+REACT_APP_FIREBASE_STORAGE_BUCKET=YOUR_STORAGE_BUCKET_HERE
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=YOUR_MESSAGING_SENDER_ID_HERE
+REACT_APP_FIREBASE_APP_ID=YOUR_FIREBASE_APP_ID
+```
 
-### Code Splitting
+### Auth Set Up
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+In order to sign up to your app you will need to enable Firebase Auth first. 
+Go to [Firebase console](https://firebase.google.com/) under the `Build` tab, click on `Authentication` and click **Get Started**.
 
-### Analyzing the Bundle Size
+Select **Email/Password** as your sign-in provider as this is what this starter kit is configured to work with. Toggle the tab to Enable it.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+You should now be able to Sign up and login using your app. You can check if your user has been created properly after sign up by checking in Authentication -> Users
+## Deployment
 
-### Making a Progressive Web App
+These are some methods of deploying your React App: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+> Don't forget to add your Firebase variables as environment variables.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Here is my example deploymeny with Vercel: [https://react-firebase-starter-oy0icb8ii-lizhard.vercel.app/](https://react-firebase-starter-oy0icb8ii-lizhard.vercel.app/)
