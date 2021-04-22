@@ -1,7 +1,8 @@
-# React with Firebase Starter Kit
+# React with Firebase Starter App
+
+This is a small starter app which uses Firebase for authentication. Instructions are provided for integrating your own firebase instance to manage your own authentication flow.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
